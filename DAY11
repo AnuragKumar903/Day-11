@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+
+void checkTargetExists(const std::vector<int>& arr, int target) {
+    // Iterate through the array to check if the target exists
+    for (int value : arr) {
+        if (value == target) {
+            std::cout << "YES" << std::endl;
+            return;
+        }
+    }
+    std::cout << "NO" << std::endl;
+}
+
+int main() {
+    std::vector<int> arr = {2, 4, 6, 7, 8};
+    int target = 6;
+    checkTargetExists(arr, target);
+    
+    // Test with another target
+    target = 10;
+    checkTargetExists(arr, target);
+    
+    return 0;
+}
+
+
+#include <iostream>
+#include <vector>
+
+int findTargetIndex(const std::vector<int>& arr, int target) {
+    for (int i = 0; i < arr.size(); ++i) {
+        if (arr[i] == target) {
+            return i + 1; // Return index with 1-based indexing
+        }
+    }
+    return -1; // Return -1 if target does not exist
+}
+
+int main() {
+    std::vector<int> arr = {2, 4, 6, 7, 8};
+    int target = 6;
+    std::cout << "Index of target: " << findTargetIndex(arr, target) << std::endl;
+
+    // Test with another target
+    target = 10;
+    std::cout << "Index of target: " << findTargetIndex(arr, target) << std::endl;
+
+    return 0;
+}
